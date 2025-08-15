@@ -15,7 +15,7 @@ public class Libro {
     private String titulo;
     @Column(name = "idioma", length = 2, nullable = true)
     private String idioma;
-    @ManyToMany(cascade = CascadeType.PERSIST) // ¡Esto es crucial!
+    @ManyToMany(cascade = CascadeType.PERSIST)
     @JoinTable(
             name = "libro_autor",
             joinColumns = @JoinColumn(name = "libro_id"),
@@ -38,7 +38,6 @@ public class Libro {
                 "titulo='" + titulo + '\'' +
                 ", autores=" + autores +
                 '}';
-
     }
 
     public String getTitulo() {
